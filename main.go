@@ -10,7 +10,7 @@ import (
 func main() {
 	fmt.Println("Новый проект")
 	// в методе flag.String("название поля", "Значение по-умолчанию", "Пояснение"), в результате получаем указатель на строку
-	city := flag.String("city", "Moscow", "Город пользователя")
+	city := flag.String("city", "Moskva", "Город пользователя")
 	format := flag.Int("format", 1, "Формат вывода погоды")
 
 	// Используется только после того, как мы объявили все необходимые нам аргументы, то есть в конце
@@ -21,6 +21,6 @@ func main() {
 	if err != nil {
 		fmt.Println(err.Error())
 	}
-	weatherData := weather.GetWeather(*geoData, *format)
+	weatherData, _ := weather.GetWeather(*geoData, *format)
 	fmt.Println(weatherData)
 }
